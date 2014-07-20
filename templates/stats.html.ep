@@ -91,7 +91,15 @@
       </tbody>
     </table> 
 
+    <h3>Caveats</h3>
 
+    <p>Inevitably, I've had to make compromises in collecting this data. It's only fair I flag them up. So, in no particular order:</p>
+    <ul>
+      <li>This all runs on one VPS provided by Digital Ocean, at their London location. Network lag and routing issues should be the same for both sites, but might be a factor.</li>
+      <li>I want to remain a good Internet citizen, so I only poll each site every 5 minutes. This is enough granularity for our purpose, but might occasionally cause confusion when a site has just gone down / just recovered.</li>
+      <li>The code is uuuuuugly. <a href="http://github.com/jkg/cpan-uptime-show/">It's on github</a> and pull requests are welcome! By the end I had a vague idea what I was doing with Mojolicious, but at the outset... yeah, not so much.</li>
+      <li>I haven't written the handler that just dumps the raw data at you as a CSV file yet. Coming soon!</li>
+    </ul>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
