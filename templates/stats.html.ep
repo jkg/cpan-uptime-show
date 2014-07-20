@@ -105,10 +105,19 @@
     <p>Inevitably, I've had to make compromises in collecting this data. It's only fair I flag them up. So, in no particular order:</p>
     <ul>
       <li>This all runs on one VPS provided by Digital Ocean, at their London location. Network lag and routing issues should be the same for both sites, but might be a factor.</li>
-      <li>I want to remain a good Internet citizen, so I only poll each site every 5 minutes. This is enough granularity for our purpose, but might occasionally cause confusion when a site has just gone down / just recovered.</li>
+      <li>I want to remain a good Internet citizen, so I only poll each site every <del>5</del> 2 minutes. This is enough granularity for our purpose, but might occasionally cause confusion when a site has just gone down / just recovered. <strong>NB: I now poll every 2 minutes</strong></li>
+      <li>An "outage" may well be a single failed request: this is almost certainly the case if the last reported outage was only a few minutes long. Suggestions for better ways to phrase this appreciated :-) Semantically the columns are "last success before the last failure" and "last failure", but that's a little clunky.</li>
       <li>The code is uuuuuugly. <a href="http://github.com/jkg/cpan-uptime-show/">It's on github</a> and pull requests are welcome! By the end I had a vague idea what I was doing with Mojolicious, but at the outset... yeah, not so much.</li>
       <li>I haven't written the handler that just dumps the raw data at you as a CSV file yet. Coming soon!</li>
     </ul>
+
+    <h3>About / Colophon</h3>
+
+    <p>This page is generated using <a href="http://mojoliciou.us/" target="_blank">Mojolicious::Lite</a> and made prettier by <a href="" target="_blank">Twitter Bootstrap</a>. Any flaws are most likely mine, and not theirs. Code available at <a href="https://github.com/jkg/cpan-uptime-show/" target="_blank">GitHub</a>.</p>
+
+    <p>Data is gathered using <a href="http://metacpan.org/release/LWP::UserAgent" target="_blank">LWP::UserAgent</a> and the code for this is in a <a href="https://github.com/jkg/cpan-uptime/" target="_blank">separate GitHub project</a>.</p>
+
+    <p>Pages are served from a <a href="http://digitalocean.com/" target="_blank">Digital Ocean</a> "droplet" in London, using <a href="http://nginx.org" target="_blank">nginx</a> proxying to hypnotoad, and the data lives in <a href="http://sqlite.org" target="_blank">SQLite</a>.</p>
 
     </div>
 
