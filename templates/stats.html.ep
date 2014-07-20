@@ -21,8 +21,75 @@
     <div class="jumbotron">
       <h1>CPAN Search Interface Performance</h1>
       <p>There are, these days, two search front-ends to the CPAN: <a href="http://search.cpan.org/" target="_blank">search.cpan.org</a> and <a href="http://metacpan.org" target="_blank">MetaCPAN</a>. After numerous conversations that degenerated into "well, X is slow for me sometimes" and "well, it's never been down for me", <a href="https://twitter.com/jkg" target="_blank">jkg</a> got bored and decided to collate some statistics.</p>
-      <p>These are those statistics</p>
+      <p>These are those statistics.</p>
     </div>
+
+    <h3>Current Status</h3>
+
+    <table class="table">
+      <thead>
+        <th>Site</th>
+        <th>Current Status</th>
+        <th>Last Outage From...</th>
+        <th>Last Outage Until...</th>
+      </thead>
+      <tbody>
+        <tr class="<%= $mc_current ? "success" : "danger" %>">
+          <td>MetaCPAN</td>
+          <td><%= $mc_current ? "UP" : "DOWN" %></td>
+          <td><%= $mc_outage_start %></td>
+          <td><%= $mc_last_fail %></td>
+        </tr>
+        <tr class="<%= $sco_current ? "success" : "danger" %>">
+          <td>CPAN Search</td>
+          <td><%= $sco_current ? "UP" : "DOWN" %></td>
+          <td><%= $sco_outage_start %></td>
+          <td><%= $sco_last_fail %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Historic Performance</h3>
+
+    <table class="table table-hover">
+      <thead>
+        <th>Period</th>
+        <th>MC Response Time (ms)</th>
+        <th>SCO Response Time (ms)</th>
+        <th>MC Availability (%)</th>
+        <th>SCO Avalability (%)</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Since Jul 20th 2014</td>
+          <td><%= $speed->{meta}{alldays} %></td>
+          <td><%= $speed->{sco}{alldays} %></td>
+          <td><%= $avail->{meta}{alldays} %></td>
+          <td><%= $avail->{sco}{alldays} %></td>
+        </tr>
+        <tr>
+          <td>Last 7 Days</td>
+          <td><%= $speed->{meta}{'7days'} %></td>
+          <td><%= $speed->{sco}{'7days'} %></td>
+          <td><%= $avail->{meta}{'7days'} %></td>
+          <td><%= $avail->{sco}{'7days'} %></td>
+        </tr>
+        <tr>
+          <td>Last 30 Days</td>
+          <td><%= $speed->{meta}{'30days'} %></td>
+          <td><%= $speed->{sco}{'30days'} %></td>
+          <td><%= $avail->{meta}{'30days'} %></td>
+          <td><%= $avail->{sco}{'30days'} %></td>
+        </tr>
+        <tr>
+          <td>Last 90 Days</td>
+          <td><%= $speed->{meta}{'90days'} %></td>
+          <td><%= $speed->{sco}{'90days'} %></td>
+          <td><%= $avail->{meta}{'90days'} %></td>
+          <td><%= $avail->{sco}{'90days'} %></td>
+        </tr>
+      </tbody>
+    </table> 
 
 
 
