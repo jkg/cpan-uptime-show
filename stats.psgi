@@ -57,7 +57,7 @@ get '/stats' => sub {
 	my $speed; my $avail;
 
 	for my $site (qw/meta sco/) {
-		for ( 'all', 7, 30, 90 ) {
+		for ( 'all', 1, 7, 30, 90 ) {
 			my $args = looks_like_number $_ ? { 
 				start => DateTime->now->subtract( days => $_ )->epoch()
 			} : {};

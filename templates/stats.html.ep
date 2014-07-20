@@ -68,6 +68,13 @@
           <td><%= $avail->{sco}{alldays} %></td>
         </tr>
         <tr>
+          <td>Last 24 Hours</td>
+          <td><%= $speed->{meta}{'1days'} %></td>
+          <td><%= $speed->{sco}{'1days'} %></td>
+          <td><%= $avail->{meta}{'1days'} %></td>
+          <td><%= $avail->{sco}{'1days'} %></td>
+        </tr>
+        <tr>
           <td>Last 7 Days</td>
           <td><%= $speed->{meta}{'7days'} %></td>
           <td><%= $speed->{sco}{'7days'} %></td>
