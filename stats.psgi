@@ -153,7 +153,7 @@ sub results_interval {
 
 	return {
 		avg_time => sprintf( "%.0f", $avg ),
-		percent_up => $trials ? sprintf( "%.2f", $up / $trials ) : 'N/A',
+		percent_up => $trials ? sprintf( "%.2f", 100 * $up / $trials ) : 'N/A',
 		trials => $trials
 	};
 
