@@ -5,8 +5,6 @@ use DBI;
 use DateTime;
 use Scalar::Util qw/looks_like_number/;
 
-use Data::Dumper;
-
 my $cfg = Config::YAML->new( config => 'config.yaml' );
 my $db_path = $cfg->{db_path};
 
@@ -68,10 +66,6 @@ get '/stats' => sub {
 			$avail->{$site}{$_.'days'} = $res->{percent_up};
 		}
 	}
-
-	say Dumper $speed;
-	say Dumper $avail;
-
 
 	$c->stash( speed => $speed, avail => $avail );
 
@@ -140,16 +134,12 @@ sub results_interval {
 	my $site = shift;
 	my %options = ( start => 0, end => time(), @_ );
 
-	say Dumper( \%options );
-
 	my ($avg, $up, $trials) = $dbh->selectrow_array(
 		'SELECT avg(msec), sum(result), count(*) FROM results 
 			WHERE timestamp > ? AND timestamp < ? AND site = ?',
 		{},
 		@options{qw/start end/}, $site
 	);
-
-	say "avg $avg up $up trials $trials site $site";
 
 	return {
 		avg_time => sprintf( "%.0f", $avg ),
