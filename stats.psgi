@@ -17,6 +17,8 @@ get '/' => sub {
 
 	my $now = DateTime->now();
 
+	$c->stash( generated_at => $now->strftime('%F %H:%M') );
+
 	my $last_fail_sco = last_failure('sco');
 	my $last_fail_mc = last_failure('meta');
 

@@ -24,7 +24,7 @@
       <p>These are those statistics.</p>
     </div>
 
-    <h3>Current Status</h3>
+    <h3>Current Status at <%= $generated_at %> (UTC)</h3>
 
     <table class="table">
       <thead>
