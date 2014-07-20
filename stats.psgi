@@ -11,7 +11,7 @@ my $db_path = $cfg->{db_path};
 my $dbh = DBI->connect("dbi:SQLite:dbname=$db_path",'','') 
   or die "Couldn't open DB";
 
-get '/stats' => sub {
+get '/' => sub {
 
 	my $c = shift;
 
