@@ -24,6 +24,8 @@
       <p>These are those statistics.</p>
     </div>
 
+    <div class="container">
+
     <h3>Current Status at <%= $generated_at %> (UTC)</h3>
 
     <table class="table">
@@ -107,6 +109,8 @@
       <li>The code is uuuuuugly. <a href="http://github.com/jkg/cpan-uptime-show/">It's on github</a> and pull requests are welcome! By the end I had a vague idea what I was doing with Mojolicious, but at the outset... yeah, not so much.</li>
       <li>I haven't written the handler that just dumps the raw data at you as a CSV file yet. Coming soon!</li>
     </ul>
+
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
