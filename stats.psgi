@@ -78,9 +78,16 @@ get '/' => sub {
 get '/raw' => sub {
 
 	my $c = shift;
+	my $days = $c->param('days') || 0;
 
+	my $rows = $dbh->selectall_arrayref(
+		'SELECT timestamp, site, result, msec FROM results WHERE timestamp > ?',
+		{ Slice => {} },
+		$days,
+	);
 
-	$c->render('raw');
+	$c->stash( rows => $rows );
+	$c->render(template => 'raw', format => 'csv');
 
 };
 

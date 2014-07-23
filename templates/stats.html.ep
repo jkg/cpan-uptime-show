@@ -22,11 +22,30 @@
       <h1>CPAN Search Interface Performance</h1>
       <p>There are, these days, two search front-ends to the CPAN: <a href="http://search.cpan.org/" target="_blank">search.cpan.org</a> and <a href="http://metacpan.org" target="_blank">MetaCPAN</a>. After numerous conversations that degenerated into "well, X is slow for me sometimes" and "well, it's never been down for me", <a href="https://twitter.com/jkg" target="_blank">jkg</a> got bored and decided to collate some statistics.</p>
       <p>These are those statistics.</p>
+
     </div>
 
     <div class="container">
 
-    <h3>Current Status at <%= $generated_at %> (UTC)</h3>
+      <h3>Download raw data</h3>
+
+      <form class="form-horizontal" role="form" action="/raw" method="get">
+        <div class="form-group">
+          <div class="col-md-6">
+            <select class="form-control" name="days">
+              <option value="">All (since 20th July 2014)</option>
+              <option value="7">1 week</option>
+              <option value="30">30 days</option>
+              <option value="90">90 days</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-default">Give me DATA!</button>
+          </div>
+        </div>
+      </form>
+
+    <h3>Last Known Status at <%= $generated_at %> (UTC)</h3>
 
     <table class="table">
       <thead>

@@ -1,0 +1,3 @@
+% for my $row ( @$rows ) {
+%= "$row->{timestamp},$row->{site},$row->{result},$row->{msec}"
+% }
