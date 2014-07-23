@@ -83,7 +83,7 @@ get '/raw' => sub {
 	my $rows = $dbh->selectall_arrayref(
 		'SELECT timestamp, site, result, msec FROM results WHERE timestamp > ?',
 		{ Slice => {} },
-		$days,
+		DateTime->now->subtract( days => $days )->epoch(),
 	);
 
 	$c->stash( rows => $rows );
